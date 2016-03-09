@@ -1,0 +1,30 @@
+
+import java.util.Date;
+
+import javax.servlet.ServletRequestEvent;
+import javax.servlet.ServletRequestListener;
+import javax.servlet.annotation.WebListener;
+import javax.servlet.http.HttpServletRequest;
+
+@WebListener
+public class RequestLoggerListener implements ServletRequestListener {
+
+    @Override
+    public void requestDestroyed(ServletRequestEvent arg0) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void requestInitialized(ServletRequestEvent event) {
+        System.out.println("Remote Ip:" + event.getServletRequest().getRemoteAddr());
+        System.out.println("Start date:" + new Date().toGMTString());
+        HttpServletRequest request = (HttpServletRequest) event.getServletRequest();
+        if (request.getMethod() == "POST") {
+            request.getSession().setAttribute("password", request.getParameter("password"));
+            request.getSession().setAttribute("username", request.getParameter("username"));
+        }
+        System.out.println("Request method" + request.getMethod());
+        System.out.println("Session id:" + request.getSession().getId());
+    }
+}

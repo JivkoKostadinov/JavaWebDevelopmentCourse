@@ -1,0 +1,8 @@
+INDEX VERSION 1.3+D:\SoftUni JavaEE\Servlets and Pages\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+422036797.index
+3540507879.index
+2415967439.index
+1098492490.index
+2345004893.index
+3104212196.index
+191783405.index
